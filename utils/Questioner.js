@@ -64,7 +64,7 @@ const acknowledgement = new Questionnaire(
 );
 
 module.exports = {
-  headings: [
+  prompters: [
     projectTitle,
     gettingStarted,
     prerequisites,
@@ -75,6 +75,8 @@ module.exports = {
     builtWith,
     contributing,
     versioning,
+    authors,
+    license,
     acknowledgement,
   ],
 };

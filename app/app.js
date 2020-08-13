@@ -4,7 +4,7 @@ const fs = require('fs'),
   path = require('path'),
   readline = require('readline');
 
-const { headings } = require('./../utils/Questioner');
+const { prompters } = require('./../utils/Questioner');
 const { partial } = require('./../utils/lib');
 
 const rl = readline.createInterface({
@@ -26,27 +26,26 @@ const appendFileSync = (filePath, data) => {
   fs.appendFileSync(filePath, data);
 };
 
-const genFile3 = partial(
+const genFile = partial(
   appendFileSync,
   path.join(__dirname, './../', 'README.md')
 );
 
 const init = async () => {
   let ans;
-  try {
-    for (let i = 0; i < headings.length; i++) {
-      ans = await Promise.all([rline(headings[i]['request'])]);
-      headings[i]['setResponse'](ans);
-      genFile3(`# ${headings[i]['title']} \n${headings[i]['response']}\n`);
+
+  for (let i = 0; i < prompters.length; i++) {
+    try {
+      ans = await rline(prompters[i]['request']);
+    } catch (e) {
+      error(e);
     }
-  } catch (e) {
-    error(e);
+
+    prompters[i]['setResponse'](ans);
+    genFile(`# ${prompters[i]['title']} \n___\n${prompters[i]['response']}\n`);
   }
   rl.close();
+  log('README created!');
 };
 
-init();
-
-rl.on('close', () => {
-  log('README created!');
-});
+module.exports = init;
