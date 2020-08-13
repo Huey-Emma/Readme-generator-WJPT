@@ -15,11 +15,7 @@ const rl = readline.createInterface({
 const rline = query =>
   new Promise((resolve, reject) => {
     rl.question(query, ans => {
-      if (ans) {
-        resolve(ans);
-      } else {
-        resolve('');
-      }
+      resolve(ans);
     });
   });
 
