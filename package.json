@@ -1,0 +1,8 @@
+{
+  "name": "readMe",
+  "version": "1.0.0",
+  "description": "A program that generates README files",
+  "main": "index.js",
+  "author": "Huey",
+  "license": "MIT"
+}
