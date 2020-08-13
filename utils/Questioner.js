@@ -12,55 +12,55 @@ class Questionnaire {
 
 const projectTitle = new Questionnaire(
   'Project Title',
-  'Please provide a project title - '
+  'Please provide a project title -> '
 );
 
 const gettingStarted = new Questionnaire(
   'Getting Started',
-  'Please provide instructions for setup - '
+  'Please provide instructions for setup -> '
 );
 
 const prerequisites = new Questionnaire(
   'Prerequisites',
-  'Please provide installation instructions - '
+  'Please provide installation instructions -> '
 );
 
 const installating = new Questionnaire(
   'Installating',
-  'Please provide step by step examples for how to get a development env running - '
+  'Please provide step by step examples for how to get a development env running -> '
 );
 
 const tests = new Questionnaire(
   'Tests',
-  'Please explain how to run tests for this system - '
+  'Please explain how to run tests for this system -> '
 );
 
 const e2eTestsBreakdown = new Questionnaire(
   'Breakdown into End to End Tests',
-  'Please explain what these tests test and why - '
+  'Please explain what these tests test and why -> '
 );
 
 const deployment = new Questionnaire(
   'Deployment',
-  'Please add additional notes about how to deploy this to a live system - '
+  'Please add additional notes about how to deploy this to a live system -> '
 );
 
 const builtWith = new Questionnaire(
   'Built With',
-  'Please include the technologies used to build this package - '
+  'Please include the technologies used to build this package -> '
 );
 
-const contributing = new Questionnaire('Contributors', 'Add contributors - ');
+const contributing = new Questionnaire('Contributors', 'Add contributors -> ');
 
-const versioning = new Questionnaire('Version', 'Add version - ');
+const versioning = new Questionnaire('Version', 'Add version -> ');
 
-const authors = new Questionnaire('Authors', 'Add Authors - ');
+const authors = new Questionnaire('Authors', 'Add Authors -> ');
 
-const license = new Questionnaire('License', 'Add License - ');
+const license = new Questionnaire('License', 'Add License -> ');
 
 const acknowledgement = new Questionnaire(
   'Acknowledgement',
-  'Add Acknowledgement - '
+  'Add Acknowledgement -> '
 );
 
 module.exports = {

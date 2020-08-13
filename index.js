@@ -1,7 +1,8 @@
 const { log } = console;
 
-const initApp = require('./app/app');
-const { slice, partial, eq } = require('./utils/lib');
+const init = require('./app/app');
+const { slice, partial, eq, or, join, pipe } = require('./utils/lib');
+const { version } = require('./package.json');
 
 const message = () => {
   log(
@@ -9,10 +10,16 @@ const message = () => {
   );
 };
 
-const parseCLIArg = partial(slice, 2, undefined);
+const sliceArgv = partial(slice, 2, undefined);
+const joinCLIArgs = partial(join, '');
 
-if (eq('create', parseCLIArg(process.argv)[0])) {
-  initApp();
+const parsedCLIArg = pipe(sliceArgv, joinCLIArgs)(process.argv);
+
+if (eq('create', parsedCLIArg)) {
+  init();
+} else if (or(eq('-V', parsedCLIArg), eq('--version', parsedCLIArg))) {
+  log(version);
+  process.exit();
 } else {
   message();
   process.exit();

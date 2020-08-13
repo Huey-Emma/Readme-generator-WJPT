@@ -1,6 +1,6 @@
 const { log } = console;
 
-const {} = require('./utils/lib');
+const { or, join } = require('./utils/lib');
 
 const thunkify = fn => (...args) => () => fn(...args);
 
@@ -17,4 +17,4 @@ const promises = async () => {
   log(prom);
 };
 
-promises();
+log(process.argv);

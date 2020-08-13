@@ -5,22 +5,23 @@ const fs = require('fs'),
   readline = require('readline');
 
 const { prompters } = require('./../utils/Questioner');
-const { partial } = require('./../utils/lib');
+const { partial, len } = require('./../utils/lib');
 
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-const rline = query => {
-  return new Promise((resolve, reject) => {
+const rline = query =>
+  new Promise((resolve, reject) => {
     rl.question(query, ans => {
       if (ans) {
         resolve(ans);
+      } else {
+        resolve('');
       }
     });
   });
-};
 
 const appendFileSync = (filePath, data) => {
   fs.appendFileSync(filePath, data);
@@ -34,7 +35,7 @@ const genFile = partial(
 const init = async () => {
   let ans;
 
-  for (let i = 0; i < prompters.length; i++) {
+  for (let i = 0; i < len(prompters); i++) {
     try {
       ans = await rline(prompters[i]['request']);
     } catch (e) {
