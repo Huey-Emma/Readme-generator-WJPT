@@ -10,10 +10,11 @@ const message = () => {
   );
 };
 
-const sliceArgv = partial(slice, 2, undefined);
-const joinCLIArgs = partial(join, '');
+const sliceList = partial(slice, 2, undefined);
+const joinItems = partial(join, '');
 
-const parsedCLIArg = pipe(sliceArgv, joinCLIArgs)(process.argv);
+const parseCLIArg = pipe(sliceList, joinItems);
+const parsedCLIArg = parseCLIArg(process.argv);
 
 if (eq('create', parsedCLIArg)) {
   init();
